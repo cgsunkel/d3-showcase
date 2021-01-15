@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import { PieChart } from 'react-minimal-pie-chart'
 
 function App() {
   return (
@@ -17,6 +18,15 @@ function App() {
         >
           Learn React
         </a>
+        <PieChart
+          data={[
+            { title: 'Prospect', value: 7, color: '#E38627' },
+            { title: 'Assigned', value: 2, color: '#C13C37' },
+            { title: 'Active', value: 5, color: '##777fff' },
+            { title: 'Verify win', value: 2, color: '#8800ff' },
+            { title: 'Won', value: 2, color: '#990000' },
+          ]}
+        />
       </header>
     </div>
   );
