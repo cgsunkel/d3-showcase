@@ -1,6 +1,4 @@
-//Common data for use by all charts
-
-let data = [
+export const stageData = [
     {
         id: 'Prospect',
         label: 'Prospect',
@@ -27,5 +25,3 @@ let data = [
         value: 2
     },
 ]
-
-export default data
