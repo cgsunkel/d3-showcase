@@ -1,5 +1,5 @@
-import { Chart } from "react-google-charts"
 import React from "react"
+import { Chart } from "react-google-charts"
 import { storiesOf } from '@storybook/react'
 
 const stageData = [
