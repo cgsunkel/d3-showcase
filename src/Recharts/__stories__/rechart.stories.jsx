@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { PieChart, Pie, Legend, Cell, Sector } from 'recharts'
+import { PieChart, Pie, Legend, Cell } from 'recharts'
 
 const stageData = [
   { name: 'Prospect', value: 7 },
