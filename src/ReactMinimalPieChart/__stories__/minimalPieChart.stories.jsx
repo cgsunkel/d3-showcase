@@ -10,8 +10,10 @@ const data = [
   { title: 'Verify win', value: 2, color: '#8800ff' },
   { title: 'Won', value: 2, color: '#990000' },
 ]
- 
- storiesOf('MinimalPieChart', module)
+
+const viewBoxSize = [100, 100]
+
+storiesOf('MinimalPieChart', module)
   .addParameters({
     options: { theme: undefined },
     readme: {
@@ -19,7 +21,5 @@ const data = [
     },
   })
   .add('Default', () => (
-    <MinimalPieChart
-      data={data}
-    />
+    <MinimalPieChart data={data} viewBoxSize={viewBoxSize} />
   ))
