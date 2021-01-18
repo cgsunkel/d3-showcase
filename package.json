@@ -23,6 +23,7 @@
     "react-scripts": "4.0.1",
     "recharts": "^2.0.3",
     "storybook-readme": "^5.0.9",
+    "victory": "^35.4.6",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
