@@ -1,6 +1,7 @@
 import React from "react"
 import { Chart } from "react-google-charts"
 import { storiesOf } from '@storybook/react'
+import { BLUE, YELLOW, GREEN, TURQUOISE, GRASS_GREEN } from 'govuk-colours'
 
 const stageData = [
     ['Stage', 'Value'],
@@ -19,7 +20,7 @@ storiesOf('ReactGoogleCharts', module)
       chartType="PieChart"
       data={stageData}
       options={{
-          title: 'My projects'
+          title: 'My projects',
       }}
       rootProps={{ 'data-testid': '1'}}
       legendToggle

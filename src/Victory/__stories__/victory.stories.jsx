@@ -1,6 +1,7 @@
 import React from "react"
 import { VictoryPie } from "victory"
 import { storiesOf } from '@storybook/react'
+import { BLUE, YELLOW, GREEN, TURQUOISE, GRASS_GREEN } from 'govuk-colours'
 
 const stageData = [
     { x: 'Prospect', y: 7 },
@@ -10,16 +11,18 @@ const stageData = [
     { x: 'Won', y: 2 },
   ]
 
+const colours = [BLUE, YELLOW, GREEN, TURQUOISE, GRASS_GREEN]
+
 storiesOf('Victory', module)
   .add('Default', () => (
     <VictoryPie
-        colorScale={['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8b4513']} 
+        colorScale={colours} 
         data={stageData}
     />
   ))
   .add('Donut', () => (
     <VictoryPie
-        colorScale={['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8b4513']} 
+        colorScale={colours} 
         innerRadius={100}
         data={stageData}
     />

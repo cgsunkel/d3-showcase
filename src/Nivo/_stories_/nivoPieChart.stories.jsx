@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react'
 import { withKnobs, boolean } from '@storybook/addon-knobs'
 import { Pie } from '@nivo/pie'
 import { stageData } from '../data'
+//import { BLUE, YELLOW, GREEN, TURQUOISE, GRASS_GREEN } from 'govuk-colours'
 
 const commonProperties = {
   width: 900,

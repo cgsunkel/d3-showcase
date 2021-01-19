@@ -1,6 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { PieChart, Pie, Legend, Cell } from 'recharts'
+import { BLUE, YELLOW, GREEN, TURQUOISE, GRASS_GREEN } from 'govuk-colours'
 
 const stageData = [
   { name: 'Prospect', value: 7 },
@@ -9,7 +10,7 @@ const stageData = [
   { name: 'Verify win', value: 2 },
   { name: 'Won', value: 2 },
 ]
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8b4513']
+const COLORS = [BLUE, YELLOW, GREEN, TURQUOISE, GRASS_GREEN]
 
 const stories = storiesOf('Rechart', module)
 
