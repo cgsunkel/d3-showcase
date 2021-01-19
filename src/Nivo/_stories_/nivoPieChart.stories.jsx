@@ -124,47 +124,6 @@ stories.add("adding a metric in the center using a custom layer", () => (
   />
 ));
 
-stories.add("formatted tooltip values", () => (
-  <Pie
-    {...commonProperties}
-    tooltipFormat={(value) =>
-      `${Number(value).toLocaleString("ru-RU", {
-        minimumFractionDigits: 2,
-      })} ₽`
-    }
-  />
-));
-
-stories.add("custom tooltip", () => (
-  <Pie
-    {...commonProperties}
-    tooltip={({ id, value, color }) => (
-      <strong style={{ color }}>
-        {id}: {value}
-      </strong>
-    )}
-    theme={{
-      tooltip: {
-        container: {
-          background: "#333",
-        },
-      },
-    }}
-  />
-));
-
-stories.add("enter/leave (check console)", () => (
-  <Pie
-    {...commonProperties}
-    onMouseEnter={(data, e) => {
-      console.log({ is: "mouseenter", data, event: e });
-    }}
-    onMouseLeave={(data, e) => {
-      console.log({ is: "mouseleave", data, event: e });
-    }}
-  />
-));
-
 stories.add("Responsive chart", () => (
   <div style={{ height: 500 }}>
     <ResponsivePie
