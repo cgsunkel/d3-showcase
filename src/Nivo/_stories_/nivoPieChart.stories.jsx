@@ -1,7 +1,7 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
 import { withKnobs, boolean } from "@storybook/addon-knobs";
-import { Pie } from "@nivo/pie";
+import { Pie, ResponsivePie } from "@nivo/pie";
 import { stageData } from "../data";
 import { BLUE, YELLOW, GREEN, TURQUOISE, GRASS_GREEN } from "govuk-colours";
 
@@ -163,4 +163,31 @@ stories.add("enter/leave (check console)", () => (
       console.log({ is: "mouseleave", data, event: e });
     }}
   />
+));
+
+stories.add("Responsive chart", () => (
+  <div style={{ height: 500 }}>
+    <ResponsivePie
+      data={stageData}
+      margin={{ top: 80, right: 120, bottom: 80, left: 120 }}
+      innerRadius={0.5}
+      padAngle={0.7}
+      cornerRadius={3}
+      colors={govColours}
+      borderWidth={1}
+      borderColor={{ from: "color", modifiers: [["darker", 0.2]] }}
+      radialLabelsSkipAngle={10}
+      radialLabelsTextColor="#333333"
+      radialLabelsLinkColor={{ from: "color" }}
+      sliceLabelsSkipAngle={10}
+      sliceLabelsTextColor="#333333"
+      layers={[
+        "slices",
+        "sliceLabels",
+        "radialLabels",
+        "legends",
+        CenteredMetric,
+      ]}
+    />
+  </div>
 ));
