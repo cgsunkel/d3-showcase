@@ -5,7 +5,7 @@ import { Pie, ResponsivePie } from "@nivo/pie";
 import { stageData } from "../data";
 import { BLUE, YELLOW, GREEN, TURQUOISE, GRASS_GREEN } from "govuk-colours";
 
-const govColours = [BLUE, YELLOW, GREEN, TURQUOISE, GRASS_GREEN];
+const govColours = [BLUE, TURQUOISE, GREEN, YELLOW, GRASS_GREEN];
 
 const commonProperties = {
   width: 900,
@@ -91,20 +91,35 @@ const CenteredMetric = ({ dataWithArc, centerX, centerY }) => {
   dataWithArc.forEach((datum) => {
     total += datum.value;
   });
-
+  const customY1 = centerY - 20;
+  const customY2 = centerY + 20;
   return (
-    <text
-      x={centerX}
-      y={centerY}
-      textAnchor="middle"
-      dominantBaseline="central"
-      style={{
-        fontSize: "52px",
-        fontWeight: "600",
-      }}
-    >
-      {total}
-    </text>
+    <>
+      <text
+        x={centerX}
+        y={customY1}
+        textAnchor="middle"
+        dominantBaseline="central"
+        style={{
+          fontSize: "42px",
+          fontWeight: "600",
+        }}
+      >
+        {total}
+      </text>
+      <text
+        x={centerX}
+        y={customY2}
+        textAnchor="middle"
+        dominantBaseline="central"
+        style={{
+          fontSize: "22px",
+          fontWeight: "600",
+        }}
+      >
+        {"projects"}
+      </text>
+    </>
   );
 };
 
@@ -140,6 +155,40 @@ stories.add("Responsive chart", () => (
       radialLabelsLinkColor={{ from: "color" }}
       sliceLabelsSkipAngle={10}
       sliceLabelsTextColor="#333333"
+      layers={[
+        "slices",
+        "sliceLabels",
+        "radialLabels",
+        "legends",
+        CenteredMetric,
+      ]}
+    />
+  </div>
+));
+
+stories.add("Responsive chart that matches designs", () => (
+  <div style={{ height: 500 }}>
+    <ResponsivePie
+      data={stageData}
+      colors={govColours}
+      margin={{ top: 80, right: 120, bottom: 80, left: 120 }}
+      startAngle={-90}
+      innerRadius={0.8}
+      padAngle={0.7}
+      cornerRadius={3}
+      borderWidth={1}
+      borderColor={{ from: "color", modifiers: [["darker", 0.2]] }}
+      radialLabelsSkipAngle={10}
+      radialLabelsLinkColor={{ from: "color" }}
+      sliceLabelsSkipAngle={10}
+      sliceLabelsTextColor="#333333"
+      radialLabel={(d) => `${d.id}: ${d.value}`}
+      radialLabelsLinkStrokeWidth={3}
+      radialLabelsTextColor={{
+        from: "color",
+        modifiers: [["darker", 1.2]],
+      }}
+      enableSliceLabels={false}
       layers={[
         "slices",
         "sliceLabels",
