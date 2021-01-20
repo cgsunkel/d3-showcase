@@ -3,7 +3,14 @@ import { storiesOf } from "@storybook/react";
 import { withKnobs, boolean } from "@storybook/addon-knobs";
 import { Pie, ResponsivePie } from "@nivo/pie";
 import { stageData } from "../data";
-import { BLUE, YELLOW, GREEN, TURQUOISE, GRASS_GREEN } from "govuk-colours";
+import {
+  BLUE,
+  YELLOW,
+  GREEN,
+  TURQUOISE,
+  GRASS_GREEN,
+  GREY_1,
+} from "govuk-colours";
 
 const govColours = [BLUE, TURQUOISE, GREEN, YELLOW, GRASS_GREEN];
 
@@ -101,7 +108,7 @@ const CenteredMetric = ({ dataWithArc, centerX, centerY }) => {
         textAnchor="middle"
         dominantBaseline="central"
         style={{
-          fontSize: "42px",
+          fontSize: "60px",
           fontWeight: "600",
         }}
       >
@@ -113,11 +120,11 @@ const CenteredMetric = ({ dataWithArc, centerX, centerY }) => {
         textAnchor="middle"
         dominantBaseline="central"
         style={{
-          fontSize: "22px",
+          fontSize: "20px",
           fontWeight: "600",
         }}
       >
-        {"projects"}
+        {"Projects"}
       </text>
     </>
   );
@@ -174,28 +181,13 @@ stories.add("Responsive chart that matches designs", () => (
       margin={{ top: 80, right: 120, bottom: 80, left: 120 }}
       startAngle={-90}
       innerRadius={0.8}
-      padAngle={0.7}
-      cornerRadius={3}
       borderWidth={1}
       borderColor={{ from: "color", modifiers: [["darker", 0.2]] }}
       radialLabelsSkipAngle={10}
-      radialLabelsLinkColor={{ from: "color" }}
-      sliceLabelsSkipAngle={10}
-      sliceLabelsTextColor="#333333"
       radialLabel={(d) => `${d.id}: ${d.value}`}
       radialLabelsLinkStrokeWidth={3}
-      radialLabelsTextColor={{
-        from: "color",
-        modifiers: [["darker", 1.2]],
-      }}
       enableSliceLabels={false}
-      layers={[
-        "slices",
-        "sliceLabels",
-        "radialLabels",
-        "legends",
-        CenteredMetric,
-      ]}
+      layers={["slices", "radialLabels", "legends", CenteredMetric]}
     />
   </div>
 ));
